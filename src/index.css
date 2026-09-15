@@ -1,0 +1,445 @@
+/* ==========================================================================
+   IISER Tirupati Design System - Stanford-Inspired Academic UI
+   Standard Theme: Blue | White | Peach | Orange (Strictly Bright & Academic)
+   ========================================================================== */
+
+:root {
+  /* Core Theme Colors */
+  --color-blue-primary: #003B73;
+  --color-blue-deep: #00264D;
+  --color-blue-bright: #0056B3;
+  --color-blue-royal: #0D6EFD;
+  --color-blue-light: #E8F1FC;
+  --color-blue-tint: #F2F7FD;
+
+  --color-white: #FFFFFF;
+  --color-offwhite: #F8FAFC;
+  --color-canvas: #FCFCFD;
+
+  --color-peach-light: #FFF8F3;
+  --color-peach-base: #FFF1E8;
+  --color-peach-soft: #FFE5D4;
+  --color-peach-accent: #FFD2B8;
+  --color-peach-border: #FFDFCE;
+
+  --color-orange-primary: #FF5722;
+  --color-orange-vibrant: #F26419;
+  --color-orange-dark: #D84315;
+  --color-orange-light: #FFF0EB;
+  --color-orange-glow: rgba(255, 87, 34, 0.16);
+
+  /* Academic Neutral Tones */
+  --color-text-primary: #1A2B49;
+  --color-text-secondary: #4A5B75;
+  --color-text-muted: #71829D;
+  --color-border-light: #E3EAF2;
+  --color-border-subtle: #EDF2F7;
+  --color-divider: #E9EEF5;
+
+  /* Typography */
+  --font-serif: 'Newsreader', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-accent: 'Space Grotesk', system-ui, sans-serif;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 59, 115, 0.04);
+  --shadow-md: 0 6px 20px rgba(0, 59, 115, 0.07);
+  --shadow-lg: 0 14px 36px rgba(0, 59, 115, 0.09);
+  --shadow-orange: 0 8px 24px rgba(255, 87, 34, 0.22);
+  --shadow-peach: 0 8px 28px rgba(255, 177, 133, 0.18);
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.18s ease;
+  --transition-base: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Accessibility text size multiplier */
+  --text-zoom: 1;
+}
+
+/* Base Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: calc(16px * var(--text-zoom));
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-white);
+  color: var(--color-text-primary);
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.65;
+  background-color: var(--color-canvas);
+  color: var(--color-text-primary);
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--color-blue-bright);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-orange-primary);
+}
+
+button {
+  font-family: var(--font-sans);
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2.5px solid var(--color-orange-primary);
+  outline-offset: 3px;
+}
+
+img {
+  max-width: none;
+  height: auto;
+  display: block;
+}
+
+/* Containers */
+.site-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.site-container-wide {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Stanford-style Academic Typography */
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-peach-light);
+  color: var(--color-orange-dark);
+  border: 1px solid var(--color-peach-accent);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+
+.section-tag.blue-tag {
+  background-color: var(--color-blue-light);
+  color: var(--color-blue-primary);
+  border-color: #BED6F5;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 2.45rem;
+  font-weight: 700;
+  color: var(--color-blue-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: 14px;
+}
+
+.section-title span.accent-orange {
+  color: var(--color-orange-primary);
+}
+
+.section-subtitle {
+  font-size: 1.08rem;
+  color: var(--color-text-secondary);
+  max-width: 680px;
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+
+/* Academic Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--color-orange-primary);
+  color: var(--color-white);
+  padding: 12px 24px;
+  border-radius: var(--radius-pill);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  box-shadow: var(--shadow-orange);
+  transition: all var(--transition-base);
+  border: 1.5px solid transparent;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-orange-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(216, 67, 21, 0.3);
+  color: var(--color-white);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--color-white);
+  color: var(--color-blue-primary);
+  padding: 12px 22px;
+  border-radius: var(--radius-pill);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 1.5px solid var(--color-blue-primary);
+  transition: all var(--transition-base);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-blue-light);
+  color: var(--color-blue-deep);
+  transform: translateY(-2px);
+}
+
+.btn-peach {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--color-peach-base);
+  color: var(--color-orange-dark);
+  padding: 11px 20px;
+  border-radius: var(--radius-pill);
+  font-size: 0.92rem;
+  font-weight: 600;
+  border: 1px solid var(--color-peach-accent);
+  transition: all var(--transition-base);
+}
+
+.btn-peach:hover {
+  background-color: var(--color-peach-accent);
+  color: var(--color-blue-deep);
+  transform: translateY(-1.5px);
+}
+
+.btn-outline-blue {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: transparent;
+  color: var(--color-blue-primary);
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1.5px solid var(--color-blue-primary);
+  transition: all var(--transition-base);
+}
+
+.btn-outline-blue:hover {
+  background-color: var(--color-blue-primary);
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+/* Stanford Cards */
+.card-stanford {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+}
+
+.card-stanford:hover {
+  box-shadow: var(--shadow-md);
+  border-color: #BED6F5;
+  transform: translateY(-3px);
+}
+
+.card-stanford-peach {
+  background-color: var(--color-peach-light);
+  border: 1px solid var(--color-peach-border);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+}
+
+.card-stanford-peach:hover {
+  background-color: #FFF2E8;
+  border-color: var(--color-peach-accent);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-peach);
+}
+
+/* Breadcrumbs */
+.breadcrumb-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+  background-color: var(--color-canvas);
+}
+
+.breadcrumb-bar a {
+  color: var(--color-blue-bright);
+  font-weight: 500;
+}
+
+.breadcrumb-bar a:hover {
+  color: var(--color-orange-primary);
+}
+
+/* Common Section Layouts */
+.academic-section {
+  padding: 22px 0;
+  position: relative;
+}
+
+.academic-section.bg-white {
+  background-color: var(--color-white);
+}
+
+.academic-section.bg-peach-tint {
+  background: linear-gradient(180deg, var(--color-peach-light) 0%, #FFFBF8 100%);
+  border-top: 1px solid var(--color-peach-border);
+  border-bottom: 1px solid var(--color-peach-border);
+}
+
+.academic-section.bg-blue-tint {
+  background: linear-gradient(180deg, var(--color-blue-tint) 0%, #FFFFFF 100%);
+  border-top: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+/* Animations */
+@keyframes pulseBadge {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.15);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade {
+  animation: fadeIn 0.35s ease forwards;
+}
+
+/* Grid Utilities */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 1024px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .academic-section {
+    padding: 16px 0;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .grid-4,
+  .grid-3,
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .site-container,
+  .site-container-wide {
+    padding: 0 16px;
+  }
+}
