@@ -1,6 +1,6 @@
 @use './variables' as *;
 
-:global {
+
   .tour-modal-backdrop {
     position: fixed;
     top: 0;
@@ -232,5 +232,5 @@
       display: none;
     }
   }
-}
+
 

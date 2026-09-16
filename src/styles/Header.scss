@@ -1,6 +1,5 @@
 @use './variables' as *;
 
-:global {
   .header-wrapper {
     position: relative;
     z-index: 100;
@@ -890,4 +889,3 @@
       padding: 8px 12px;
     }
   }
-}

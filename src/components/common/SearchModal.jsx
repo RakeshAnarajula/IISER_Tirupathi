@@ -6,7 +6,7 @@ import {
 import { academicPrograms, departments, announcements, researchFacilities } from '../../constants/mockData';
 import { aboutAndPeopleData } from '../../constants/aboutAndPeopleData';
 import { researchPagesData } from '../../constants/researchPagesData';
-import '../../styles/SearchModal.module.scss';
+import '../../styles/SearchModal.scss';
 
 export function SearchModal({ isOpen, onClose, onSelectPage, onOpenAdmissions, onOpenCampusTour }) {
   const [query, setQuery] = useState('');

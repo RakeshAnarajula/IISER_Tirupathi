@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { researchPagesData } from '../constants/researchPagesData';
 import { ResearchHero } from '../components/research/ResearchHero';
 import { ResearchSidebar } from '../components/research/ResearchSidebar';
-import '../styles/ResearchPage.module.scss';
+import '../styles/ResearchPage.scss';
 import { 
   Dna, 
   Microscope, 
@@ -145,7 +145,7 @@ export function BiologyPage() {
                       <div className="research-faculty-avatar" style={{ background: `linear-gradient(135deg, ${accent} 0%, #064e3b 100%)` }}>
                         {prof.image ? (
                           <img
-                            src={prof.image}
+                            src={encodeURI(prof.image)}
                             alt={prof.name}
                             style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }}
                             onError={(e) => { e.target.style.display = 'none'; }}

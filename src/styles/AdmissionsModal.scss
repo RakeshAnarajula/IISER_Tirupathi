@@ -1,6 +1,6 @@
 @use './variables' as *;
 
-:global {
+
   .adm-modal-backdrop {
     position: fixed;
     top: 0;
@@ -250,5 +250,5 @@
       grid-template-columns: 1fr;
     }
   }
-}
+
 

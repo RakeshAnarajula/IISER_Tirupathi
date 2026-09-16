@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { aboutAndPeopleData } from '../constants/aboutAndPeopleData';
 import { 
   ArrowLeft, 
   ChevronRight, 
-  ChevronDown,
+  ChevronDown, 
   Download, 
   Mail, 
   MapPin, 
@@ -26,8 +26,9 @@ import {
 } from 'lucide-react';
 
 function OfficerAvatar({ name, image }) {
-  const [hasError, setHasError] = useState(false);
-  
+  const [errorImg, setErrorImg] = useState(null);
+  const hasError = !!image && errorImg === image;
+
   const cleanName = name ? name.replace(/^(Dr\.|Prof\.|Mr\.|Mrs\.|Ms\.|Lt\s+Cdr\.)\s+/i, '').trim() : 'Staff';
   const initials = cleanName
     .split(' ')
@@ -45,13 +46,15 @@ function OfficerAvatar({ name, image }) {
     );
   }
 
+  const safeSrc = encodeURI(image);
+
   return (
     <div className="officer-avatar">
       <img
-        src={image}
+        src={safeSrc}
         alt={name}
         className="officer-img"
-        onError={() => setHasError(true)}
+        onError={() => setErrorImg(image)}
         loading="lazy"
       />
     </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { X, GraduationCap, CheckCircle2, Download, ArrowRight, ShieldCheck, Mail, Phone, User } from 'lucide-react';
-import '../../styles/AdmissionsModal.module.scss';
+import '../../styles/AdmissionsModal.scss';
 
 export function AdmissionsModal({ isOpen, onClose }) {
   const [submitted, setSubmitted] = useState(false);

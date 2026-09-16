@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { X, ChevronLeft, ChevronRight, Compass, MapPin } from 'lucide-react';
-import '../../styles/CampusTourModal.module.scss';
+import '../../styles/CampusTourModal.scss';
 
 export function CampusTourModal({ isOpen, onClose }) {
   const [activeSlide, setActiveSlide] = useState(0);

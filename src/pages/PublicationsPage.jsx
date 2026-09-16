@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { researchPagesData } from '../constants/researchPagesData';
 import { ResearchHero } from '../components/research/ResearchHero';
 import { ResearchSidebar } from '../components/research/ResearchSidebar';
-import '../styles/ResearchPage.module.scss';
+import '../styles/ResearchPage.scss';
 import { ExternalLink, Search } from 'lucide-react';
 
 export function PublicationsPage() {

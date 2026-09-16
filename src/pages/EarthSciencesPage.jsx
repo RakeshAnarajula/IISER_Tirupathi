@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { researchPagesData } from '../constants/researchPagesData';
 import { ResearchHero } from '../components/research/ResearchHero';
 import { ResearchSidebar } from '../components/research/ResearchSidebar';
-import '../styles/ResearchPage.module.scss';
+import '../styles/ResearchPage.scss';
 import { 
   Globe2, 
   CloudRain, 

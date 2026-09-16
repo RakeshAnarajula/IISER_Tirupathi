@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { navItems } from '../constants/mockData';
-import '../styles/Header.module.scss';
+import '../styles/Header.scss';
 import {
   Search,
   Menu,
