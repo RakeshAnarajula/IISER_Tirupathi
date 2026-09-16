@@ -1,0 +1,412 @@
+@use './variables' as *;
+
+.researchSection {
+  padding: 88px 0;
+  background-color: $canvas;
+}
+
+.researchSpotlightSplit {
+  display: grid;
+  grid-template-columns: 1.18fr 0.82fr;
+  gap: 36px;
+  align-items: stretch;
+
+  @media (max-width: $bp-desktop) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+// Left Spotlight Box
+.journalSpotlightBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.journalCoverFrame {
+  position: relative;
+  border-radius: $radius-xl;
+  padding: 40px;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: $shadow-md;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  @media (max-width: $bp-tablet) {
+    padding: 24px 16px;
+  }
+}
+
+.journalFrameInner {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 32px;
+  align-items: center;
+
+  @media (max-width: $bp-tablet) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.journalBookStage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.journalCoverImg {
+  width: 100%;
+  max-width: 170px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: $radius-sm;
+  box-shadow: 0 12px 28px rgba(0, 20, 45, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.journalDetailsCol {
+  color: $white;
+}
+
+.journalMetaBadges {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.journalBadge {
+  font-family: $font-accent;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background-color: rgba(255, 87, 34, 0.25);
+  color: #FFE0D3;
+  padding: 3px 10px;
+  border-radius: $radius-pill;
+  border: 1px solid rgba(255, 87, 34, 0.5);
+}
+
+.journalVolTag {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.journalNameTitle {
+  font-family: $font-accent;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: $peach-soft;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+.paperHighlightHeadline {
+  font-family: $font-serif;
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  font-weight: 700;
+  color: $white;
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+.paperAuthorsTag {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 18px;
+
+  span {
+    color: $peach-accent;
+    font-weight: 600;
+  }
+}
+
+.coverNavArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(0, 38, 77, 0.6);
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all $transition-fast;
+  backdrop-filter: blur(4px);
+
+  &:hover {
+    background-color: $orange-primary;
+  }
+
+  &.left {
+    left: 12px;
+  }
+
+  &.right {
+    right: 12px;
+  }
+}
+
+.coverDotsBar {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.coverDot {
+  width: 8px;
+  height: 8px;
+  border-radius: $radius-pill;
+  background-color: rgba(255, 255, 255, 0.35);
+  transition: all $transition-fast;
+
+  &.active {
+    width: 24px;
+    background-color: $orange-primary;
+  }
+}
+
+// Right 2x2 Grid
+.researchRightCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.researchQuickCardsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  flex: 1;
+
+  @media (max-width: $bp-mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stanfordQuickCard {
+  background-color: $white;
+  border: 1px solid $border-light;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  box-shadow: $shadow-sm;
+  transition: all $transition-base;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: $peach-accent;
+    box-shadow: $shadow-md;
+
+    .cardThumbImg {
+      transform: scale(1.05);
+    }
+
+    .quickCardTitle {
+      color: $orange-primary;
+    }
+  }
+}
+
+.cardThumbBox {
+  position: relative;
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+  background-color: $blue-deep;
+}
+
+.cardThumbImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.cardThumbOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 38, 77, 0.2) 0%, rgba(0, 38, 77, 0.65) 100%);
+}
+
+.cardFloatingIcon {
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: $white;
+  color: $blue-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: $shadow-sm;
+}
+
+.quickCardInfo {
+  padding: 14px 16px;
+  background-color: $white;
+}
+
+.quickCardTitle {
+  font-family: $font-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: $blue-deep;
+  line-height: 1.3;
+  margin: 0;
+  transition: color $transition-fast;
+}
+
+// Modal Styles
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 38, 77, 0.65);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+  padding: 20px;
+}
+
+.modalCard {
+  background-color: $white;
+  border-radius: $radius-xl;
+  max-width: 680px;
+  width: 100%;
+  padding: 32px;
+  box-shadow: $shadow-lg;
+  border: 1px solid $border-light;
+  position: relative;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid $border-light;
+}
+
+.modalTitle {
+  font-family: $font-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $blue-deep;
+  margin-bottom: 4px;
+}
+
+.modalSub {
+  font-size: 0.8rem;
+  color: $text-muted;
+}
+
+.modalClose {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: $blue-tint;
+  color: $blue-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all $transition-fast;
+
+  &:hover {
+    background-color: $orange-primary;
+    color: $white;
+  }
+}
+
+.disciplinesModalGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.discModalCard {
+  background-color: $offwhite;
+  border: 1px solid $border-light;
+  border-radius: $radius-md;
+  padding: 16px 20px;
+
+  &:hover {
+    background-color: $peach-light;
+    border-color: $peach-accent;
+  }
+}
+
+.discTitle {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: $blue-deep;
+  margin-bottom: 4px;
+}
+
+.discDesc {
+  font-size: 0.85rem;
+  color: $text-secondary;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.discLeads {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: $orange-primary;
+}
+
+.highlightsList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.highlightItemCard {
+  background-color: $offwhite;
+  border: 1px solid $border-light;
+  border-radius: $radius-md;
+  padding: 16px 20px;
+
+  h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: $blue-deep;
+    margin: 6px 0;
+  }
+
+  p {
+    font-size: 0.85rem;
+    color: $text-secondary;
+    line-height: 1.5;
+  }
+}
+
+.hlTag {
+  font-family: $font-accent;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: $orange-dark;
+  background-color: $peach-base;
+  padding: 2px 8px;
+  border-radius: $radius-pill;
+  display: inline-block;
+}
+

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { researchPagesData } from '../data/researchPagesData';
-import { ResearchHero } from '../components/ResearchHero';
-import { ResearchSidebar } from '../components/ResearchSidebar';
-import '../styles/ResearchPage.css';
+import { researchPagesData } from '../constants/researchPagesData';
+import { ResearchHero } from '../components/research/ResearchHero';
+import { ResearchSidebar } from '../components/research/ResearchSidebar';
+import '../styles/ResearchPage.module.scss';
 
 export function HighlightsPage() {
   const [selectedDept, setSelectedDept] = useState('All');
@@ -164,3 +164,4 @@ export function HighlightsPage() {
 }
 
 export default HighlightsPage;
+

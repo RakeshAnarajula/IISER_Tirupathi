@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { researchPagesData } from '../data/researchPagesData';
-import { ResearchHero } from '../components/ResearchHero';
-import { ResearchSidebar } from '../components/ResearchSidebar';
-import '../styles/ResearchPage.css';
+import { researchPagesData } from '../constants/researchPagesData';
+import { ResearchHero } from '../components/research/ResearchHero';
+import { ResearchSidebar } from '../components/research/ResearchSidebar';
+import '../styles/ResearchPage.module.scss';
 import { 
   Dna, 
   Microscope, 
@@ -12,10 +12,7 @@ import {
   Brain, 
   Cpu, 
   Mail, 
-  Sparkles, 
-  CheckCircle2, 
-  ChevronRight,
-  ExternalLink
+  ChevronRight
 } from 'lucide-react';
 
 const iconMap = {
@@ -146,7 +143,16 @@ export function BiologyPage() {
                   {data.content?.faculty?.map((prof, idx) => (
                     <div key={idx} className="research-faculty-card">
                       <div className="research-faculty-avatar" style={{ background: `linear-gradient(135deg, ${accent} 0%, #064e3b 100%)` }}>
-                        <span>{prof.name.split(' ').slice(1).map(n => n[0]).join('').slice(0, 2)}</span>
+                        {prof.image ? (
+                          <img
+                            src={prof.image}
+                            alt={prof.name}
+                            style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }}
+                            onError={(e) => { e.target.style.display = 'none'; }}
+                          />
+                        ) : (
+                          <span>{prof.name.split(' ').slice(1).map(n => n[0]).join('').slice(0, 2)}</span>
+                        )}
                       </div>
                       <div className="research-faculty-info">
                         <h4 className="research-faculty-name">{prof.name}</h4>
@@ -225,3 +231,4 @@ export function BiologyPage() {
 }
 
 export default BiologyPage;
+

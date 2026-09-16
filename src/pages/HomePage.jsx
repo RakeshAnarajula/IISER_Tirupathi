@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import { Hero } from '../components/Hero';
-import { AboutAndAnnouncementsSection } from '../components/AboutAndAnnouncementsSection';
-import { ResearchSection } from '../components/ResearchSection';
-import { NewsEventsSection } from '../components/NewsEventsSection';
-import { PartnerLogosSection } from '../components/PartnerLogosSection';
+import { Hero } from '../components/home/Hero';
+import { AboutAndAnnouncementsSection } from '../components/aboutUs/AboutAndAnnouncementsSection';
+import { ResearchSection } from '../components/research/ResearchSection';
+import { NewsEventsSection } from '../components/newsEvents/NewsEventsSection';
+import { PartnerLogosSection } from '../components/home/PartnerLogosSection';
 
 export function HomePage({ onOpenAdmissions, onOpenCampusTour, onSelectPage }) {
   useEffect(() => {
@@ -34,3 +34,4 @@ export function HomePage({ onOpenAdmissions, onOpenCampusTour, onSelectPage }) {
 }
 
 export default HomePage;
+

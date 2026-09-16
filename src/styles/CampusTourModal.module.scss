@@ -1,0 +1,236 @@
+@use './variables' as *;
+
+:global {
+  .tour-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 38, 77, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .tour-modal-card {
+    width: 100%;
+    max-width: 920px;
+    background-color: $color-white;
+    border-radius: $radius-xl;
+    border: 1.5px solid $color-peach-accent;
+    box-shadow: 0 24px 60px rgba(0, 38, 77, 0.3);
+    overflow: hidden;
+    animation: slideDown 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .tour-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px;
+    background: linear-gradient(135deg, $color-blue-primary 0%, $color-blue-bright 100%);
+    color: $color-white;
+  }
+
+  .tour-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .tour-icon {
+    color: $color-peach-light;
+  }
+
+  .tour-heading {
+    font-family: $font-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: $color-white;
+  }
+
+  .tour-sub {
+    font-size: 0.76rem;
+    color: $color-blue-light;
+  }
+
+  .tour-close-btn {
+    color: $color-white;
+    padding: 6px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color $transition-fast;
+
+    &:hover {
+      background-color: $color-orange-primary;
+    }
+  }
+
+  .tour-viewport {
+    position: relative;
+    height: 440px;
+    background-color: $color-peach-subtle;
+    overflow: hidden;
+  }
+
+  .tour-main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .tour-arrow-btn {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: $color-blue-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 38, 77, 0.2);
+    transition: all $transition-fast;
+
+    &:hover {
+      background-color: $color-orange-primary;
+      color: $color-white;
+      transform: translateY(-50%) scale(1.08);
+    }
+
+    &.left {
+      left: 16px;
+    }
+
+    &.right {
+      right: 16px;
+    }
+  }
+
+  .tour-caption-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 38, 77, 0.94) 100%);
+    padding: 30px 24px 18px;
+    color: $color-white;
+  }
+
+  .tour-caption-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+
+  .slide-counter {
+    font-family: $font-mono;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: $color-peach-light;
+    text-transform: uppercase;
+  }
+
+  .loc-tag {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.75rem;
+    color: $color-peach-subtle;
+  }
+
+  .slide-title {
+    font-family: $font-serif;
+    font-size: 1.45rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 6px;
+    color: $color-white;
+  }
+
+  .slide-desc {
+    font-size: 0.88rem;
+    color: $color-blue-light;
+    line-height: 1.5;
+    max-width: 720px;
+  }
+
+  /* Thumb Strip */
+  .tour-thumb-strip {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    background-color: $color-peach-subtle;
+    border-top: 1px solid $color-peach-border;
+  }
+
+  .tour-thumb-btn {
+    padding: 12px 10px;
+    border: none;
+    background: none;
+    text-align: left;
+    border-right: 1px solid $color-peach-border;
+    transition: all $transition-fast;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    cursor: pointer;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    &:hover {
+      background-color: $color-white;
+    }
+
+    &.active {
+      background-color: $color-white;
+      border-bottom: 3px solid $color-orange-primary;
+    }
+  }
+
+  .thumb-num {
+    font-family: $font-mono;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: $color-orange-primary;
+  }
+
+  .thumb-label {
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: $color-blue-primary;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  @media (max-width: 768px) {
+    .tour-viewport {
+      height: 320px;
+    }
+    .slide-title {
+      font-size: 1.15rem;
+    }
+    .tour-thumb-strip {
+      display: none;
+    }
+  }
+}
+

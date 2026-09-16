@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { researchPagesData } from '../data/researchPagesData';
-import { ResearchHero } from '../components/ResearchHero';
-import { ResearchSidebar } from '../components/ResearchSidebar';
-import '../styles/ResearchPage.css';
+import { researchPagesData } from '../constants/researchPagesData';
+import { ResearchHero } from '../components/research/ResearchHero';
+import { ResearchSidebar } from '../components/research/ResearchSidebar';
+import '../styles/ResearchPage.module.scss';
 import { 
   BookOpen, 
   Users, 
@@ -209,3 +209,4 @@ export function HumanitiesPage() {
 }
 
 export default HumanitiesPage;
+

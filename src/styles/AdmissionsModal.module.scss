@@ -1,0 +1,254 @@
+@use './variables' as *;
+
+:global {
+  .adm-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 38, 77, 0.75);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .adm-modal-card {
+    width: 100%;
+    max-width: 620px;
+    background-color: $color-white;
+    border-radius: $radius-xl;
+    border: 1.5px solid $color-peach-accent;
+    box-shadow: 0 24px 60px rgba(0, 38, 77, 0.25);
+    overflow: hidden;
+    animation: slideDown 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .adm-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 26px;
+    background: linear-gradient(135deg, $color-blue-primary 0%, $color-blue-bright 100%);
+    color: $color-white;
+  }
+
+  .adm-header-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .adm-header-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-peach-light;
+  }
+
+  .adm-header-title {
+    font-family: $font-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: $color-white;
+  }
+
+  .adm-header-sub {
+    font-size: 0.76rem;
+    color: $color-blue-light;
+  }
+
+  .adm-close-btn {
+    color: $color-white;
+    padding: 6px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color $transition-fast;
+
+    &:hover {
+      background-color: $color-orange-primary;
+    }
+  }
+
+  .adm-modal-body {
+    padding: 28px 26px;
+    max-height: 75vh;
+    overflow-y: auto;
+  }
+
+  .form-intro-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background-color: $color-peach-subtle;
+    border: 1px solid $color-peach-accent;
+    padding: 12px 14px;
+    border-radius: $radius-md;
+    font-size: 0.82rem;
+    color: $color-orange-dark;
+    line-height: 1.45;
+    margin-bottom: 20px;
+  }
+
+  .shield-icon {
+    color: $color-orange-primary;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .form-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .form-label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: $color-blue-primary;
+  }
+
+  .input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .field-icon {
+    position: absolute;
+    left: 12px;
+    color: $color-text-muted;
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 10px 12px 10px 38px;
+    border: 1.5px solid $color-border;
+    border-radius: $radius-sm;
+    font-family: $font-sans;
+    font-size: 0.9rem;
+    color: $color-text;
+    background-color: $color-white;
+    transition: border-color $transition-fast;
+
+    &:focus {
+      outline: none;
+      border-color: $color-blue-bright;
+      box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.12);
+    }
+  }
+
+  .form-select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1.5px solid $color-border;
+    border-radius: $radius-sm;
+    font-family: $font-sans;
+    font-size: 0.88rem;
+    color: $color-text;
+    background-color: $color-white;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+      border-color: $color-blue-bright;
+    }
+  }
+
+  .form-textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1.5px solid $color-border;
+    border-radius: $radius-sm;
+    font-family: $font-sans;
+    font-size: 0.88rem;
+    color: $color-text;
+    background-color: $color-white;
+    resize: vertical;
+
+    &:focus {
+      outline: none;
+      border-color: $color-blue-bright;
+    }
+  }
+
+  .form-footer-actions {
+    margin-top: 10px;
+  }
+
+  .form-submit-btn {
+    width: 100%;
+    padding: 13px 20px;
+    font-size: 0.98rem;
+  }
+
+  /* Success State */
+  .adm-success-state {
+    text-align: center;
+    padding: 30px 16px;
+  }
+
+  .success-icon-bubble {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background-color: $color-peach-light;
+    color: $color-orange-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+  }
+
+  .success-title {
+    font-family: $font-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: $color-blue-primary;
+    margin-bottom: 12px;
+  }
+
+  .success-desc {
+    font-size: 0.95rem;
+    color: $color-text-muted;
+    line-height: 1.6;
+    max-width: 480px;
+    margin: 0 auto 28px;
+  }
+
+  .success-action-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 600px) {
+    .form-grid-2 {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+

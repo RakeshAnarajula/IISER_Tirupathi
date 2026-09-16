@@ -1,25 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
-import { Header } from './components/Header';
-import { Footer } from './components/Footer';
-import { SearchModal } from './components/SearchModal';
-import { AdmissionsModal } from './components/AdmissionsModal';
-import { CampusTourModal } from './components/CampusTourModal';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { Header } from './layouts/Header';
+import { Footer } from './layouts/Footer';
+import { SearchModal } from './components/common/SearchModal';
+import { AdmissionsModal } from './components/admissions/AdmissionsModal';
+import { CampusTourModal } from './components/campusLife/CampusTourModal';
+import { AppRoutes } from './routes/AppRoutes';
 import { ArrowUp } from 'lucide-react';
-
-// Dedicated Pages in src/pages/
-import { HomePage } from './pages/HomePage';
-import { BiologyPage } from './pages/BiologyPage';
-import { ChemistryPage } from './pages/ChemistryPage';
-import { EarthSciencesPage } from './pages/EarthSciencesPage';
-import { MathematicsPage } from './pages/MathematicsPage';
-import { PhysicsPage } from './pages/PhysicsPage';
-import { HumanitiesPage } from './pages/HumanitiesPage';
-import { FacilitiesPage } from './pages/FacilitiesPage';
-import { HighlightsPage } from './pages/HighlightsPage';
-import { PublicationsPage } from './pages/PublicationsPage';
-import { SeminarsPage } from './pages/SeminarsPage';
-import { InstitutionalPage } from './pages/InstitutionalPage';
 
 export function App() {
   const [searchOpen, setSearchOpen] = useState(false);
@@ -49,10 +36,11 @@ export function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const researchSlugs = [
+  const rootSlugs = [
     'biology', 'chemistry', 'earth-climate-sciences', 'mathematics',
     'physics', 'humanities-social-sciences', 'research-facilities',
-    'research-highlights', 'publications', 'seminar-colloquium'
+    'research-highlights', 'publications', 'seminar-colloquium',
+    'events', 'all-events'
   ];
 
   const handleSelectPage = (pageKey) => {
@@ -61,7 +49,7 @@ export function App() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
-    if (researchSlugs.includes(pageKey)) {
+    if (rootSlugs.includes(pageKey)) {
       navigate('/' + pageKey);
     } else {
       navigate('/page/' + pageKey);
@@ -70,7 +58,7 @@ export function App() {
   };
 
   return (
-    <div className="iisert-app-root">
+    <div className="app-root">
       {/* 1. Header with Multi-Tier Navigation & Language/Zoom tools */}
       <Header 
         onOpenSearch={() => setSearchOpen(true)}
@@ -83,52 +71,15 @@ export function App() {
         activePage={location.pathname.replace(/^\//, '')}
       />
 
-      <main id="content">
-        <Routes>
-          <Route 
-            path="/" 
-            element={
-              <HomePage 
-                onOpenAdmissions={() => setAdmissionsOpen(true)}
-                onOpenCampusTour={() => setCampusTourOpen(true)}
-                onSelectPage={handleSelectPage}
-              />
-            } 
-          />
-          {/* Research Division Dedicated Pages */}
-          <Route path="/biology" element={<BiologyPage />} />
-          <Route path="/chemistry" element={<ChemistryPage />} />
-          <Route path="/earth-climate-sciences" element={<EarthSciencesPage />} />
-          <Route path="/earth-sciences" element={<EarthSciencesPage />} />
-          <Route path="/mathematics" element={<MathematicsPage />} />
-          <Route path="/physics" element={<PhysicsPage />} />
-          <Route path="/humanities-social-sciences" element={<HumanitiesPage />} />
-          <Route path="/humanities" element={<HumanitiesPage />} />
-          <Route path="/research-facilities" element={<FacilitiesPage />} />
-          <Route path="/research-highlights" element={<HighlightsPage />} />
-          <Route path="/publications" element={<PublicationsPage />} />
-          <Route path="/seminar-colloquium" element={<SeminarsPage />} />
-          <Route path="/seminars" element={<SeminarsPage />} />
-
-          {/* Institutional Pages */}
-          <Route path="/page/:slug" element={<InstitutionalPage />} />
-          <Route path="/:slug" element={<InstitutionalPage />} />
-
-          {/* Fallback to Home */}
-          <Route 
-            path="*" 
-            element={
-              <HomePage 
-                onOpenAdmissions={() => setAdmissionsOpen(true)}
-                onOpenCampusTour={() => setCampusTourOpen(true)}
-                onSelectPage={handleSelectPage}
-              />
-            } 
-          />
-        </Routes>
+      <main id="content" className="main-content">
+        <AppRoutes
+          onOpenAdmissions={() => setAdmissionsOpen(true)}
+          onOpenCampusTour={() => setCampusTourOpen(true)}
+          onSelectPage={handleSelectPage}
+        />
       </main>
 
-      {/* 9. Institutional Footer */}
+      {/* Institutional Footer */}
       <Footer onSelectPage={handleSelectPage} />
 
       {/* Interactive Modals */}
@@ -156,7 +107,7 @@ export function App() {
           <button 
             type="button" 
             onClick={scrollToTop}
-            className="floating-btn scroll-top-btn"
+            className="scroll-top-btn"
             title="Back to Top"
             aria-label="Scroll to top"
           >
@@ -164,44 +115,9 @@ export function App() {
           </button>
         )}
       </div>
-
-      {/* Scoped Styling for Floating Dock */}
-      <style>{`
-        .floating-actions-dock {
-          position: fixed;
-          bottom: 24px;
-          right: 24px;
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          z-index: 1000;
-        }
-
-        .floating-btn {
-          box-shadow: 0 8px 24px rgba(0, 38, 77, 0.2);
-          transition: all var(--transition-base);
-        }
-
-        .scroll-top-btn {
-          width: 44px;
-          height: 44px;
-          border-radius: 50%;
-          background-color: var(--color-white);
-          color: var(--color-blue-primary);
-          border: 1.5px solid var(--color-border-light);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .scroll-top-btn:hover {
-          background-color: var(--color-blue-primary);
-          color: var(--color-white);
-          transform: translateY(-3px);
-        }
-      `}</style>
     </div>
   );
 }
 
 export default App;
+

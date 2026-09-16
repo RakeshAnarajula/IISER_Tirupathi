@@ -1,0 +1,423 @@
+@use './variables' as *;
+
+.academicsSection {
+  padding: 88px 0;
+  background-color: $white;
+}
+
+.sectionHeadCenter {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 52px;
+}
+
+.sectionTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: $font-accent;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $orange-primary;
+  margin-bottom: 14px;
+}
+
+.sectionTitle {
+  font-family: $font-serif;
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  color: $blue-deep;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.accentOrange {
+  color: $orange-primary;
+}
+
+.sectionSubtitle {
+  font-size: 1.0625rem;
+  color: $text-secondary;
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.programsTabBar {
+  display: inline-flex;
+  gap: 8px;
+  background-color: $blue-tint;
+  padding: 6px;
+  border-radius: $radius-pill;
+  border: 1px solid $border-light;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tabBtn {
+  padding: 9px 20px;
+  border-radius: $radius-pill;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: $text-secondary;
+  transition: all $transition-fast;
+
+  &:hover {
+    color: $orange-primary;
+  }
+
+  &.active {
+    background-color: $blue-primary;
+    color: $white;
+    box-shadow: $shadow-sm;
+  }
+}
+
+.programsCardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 28px;
+  margin-bottom: 64px;
+
+  @media (max-width: $bp-tablet) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.programCard {
+  background-color: $white;
+  border: 1px solid $border-light;
+  border-radius: $radius-lg;
+  padding: 32px;
+  box-shadow: $shadow-sm;
+  transition: all $transition-base;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: $peach-accent;
+    box-shadow: $shadow-md;
+  }
+}
+
+.programCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.progLevelBadge {
+  font-family: $font-accent;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background-color: $peach-light;
+  color: $orange-dark;
+  padding: 4px 12px;
+  border-radius: $radius-pill;
+  border: 1px solid $peach-border;
+}
+
+.progDuration {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: $text-muted;
+  font-weight: 600;
+}
+
+.progTitle {
+  font-family: $font-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: $blue-deep;
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+.progOverview {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: $text-secondary;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.progAdmissionBox {
+  background-color: $blue-tint;
+  border: 1px solid $border-light;
+  border-radius: $radius-sm;
+  padding: 10px 14px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.admLabel {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: $blue-primary;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.admVal {
+  font-size: 0.82rem;
+  color: $text-primary;
+  font-weight: 600;
+}
+
+.progHighlightsBox {
+  margin-bottom: 24px;
+}
+
+.hlTitle {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: $blue-deep;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.hlList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.84rem;
+    color: $text-secondary;
+
+    svg {
+      color: $orange-primary;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+  }
+}
+
+.progCardFooter {
+  padding-top: 18px;
+  border-top: 1px solid $border-subtle;
+}
+
+.progCtaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: $radius-pill;
+  background-color: $peach-base;
+  color: $orange-dark;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: 1px solid $peach-accent;
+  transition: all $transition-fast;
+  width: 100%;
+  justify-content: center;
+
+  &:hover {
+    background-color: $orange-primary;
+    color: $white;
+    border-color: $orange-primary;
+    box-shadow: $shadow-orange;
+  }
+}
+
+// Departments Block
+.departmentsBlock {
+  padding-top: 32px;
+}
+
+.deptHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+  gap: 32px;
+
+  @media (max-width: $bp-tablet) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.deptHeaderDesc {
+  max-width: 500px;
+  font-size: 0.95rem;
+  color: $text-secondary;
+  line-height: 1.65;
+}
+
+.departmentsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 28px;
+
+  @media (max-width: $bp-tablet) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.deptCard {
+  background-color: $white;
+  border: 1px solid $border-light;
+  border-radius: $radius-lg;
+  padding: 28px;
+  box-shadow: $shadow-sm;
+  transition: all $transition-base;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: $peach-accent;
+    box-shadow: $shadow-md;
+  }
+}
+
+.deptCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.deptIconBox {
+  width: 48px;
+  height: 48px;
+  border-radius: $radius-md;
+  background-color: $blue-light;
+  color: $blue-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deptMetaPills {
+  display: flex;
+  gap: 8px;
+}
+
+.deptPill {
+  font-family: $font-accent;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: $radius-pill;
+  background-color: $blue-tint;
+  color: $blue-primary;
+  border: 1px solid $border-light;
+
+  &.peach {
+    background-color: $peach-light;
+    color: $orange-dark;
+    border-color: $peach-border;
+  }
+}
+
+.deptName {
+  font-family: $font-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: $blue-deep;
+  margin-bottom: 8px;
+}
+
+.deptDesc {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: $text-secondary;
+  margin-bottom: 18px;
+  flex: 1;
+}
+
+.deptSpecsBox {
+  margin-bottom: 16px;
+}
+
+.specsLabel, .cifLabel {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $text-muted;
+  margin-bottom: 6px;
+}
+
+.specsTagCloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.specTag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  background-color: $blue-tint;
+  color: $blue-primary;
+  padding: 3px 10px;
+  border-radius: $radius-pill;
+  border: 1px solid $border-light;
+}
+
+.deptCifBox {
+  background-color: $peach-light;
+  border: 1px solid $peach-border;
+  border-radius: $radius-sm;
+  padding: 10px 12px;
+  margin-bottom: 20px;
+}
+
+.cifVal {
+  font-size: 0.8rem;
+  color: $text-primary;
+}
+
+.deptFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid $border-subtle;
+}
+
+.deptHeadTxt {
+  font-size: 0.8rem;
+  color: $text-muted;
+
+  strong {
+    color: $blue-deep;
+  }
+}
+
+.deptLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: $orange-primary;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $orange-dark;
+  }
+}
+

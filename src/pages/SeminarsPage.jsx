@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { researchPagesData } from '../data/researchPagesData';
-import { ResearchHero } from '../components/ResearchHero';
-import { ResearchSidebar } from '../components/ResearchSidebar';
-import '../styles/ResearchPage.css';
-import { 
-  Calendar, 
-  Clock, 
-  MapPin 
-} from 'lucide-react';
+import { researchPagesData } from '../constants/researchPagesData';
+import { ResearchHero } from '../components/research/ResearchHero';
+import { ResearchSidebar } from '../components/research/ResearchSidebar';
+import '../styles/ResearchPage.module.scss';
+import { Clock, MapPin } from 'lucide-react';
 
 export function SeminarsPage() {
   const [activeTab, setActiveTab] = useState('upcoming');
@@ -218,3 +214,4 @@ export function SeminarsPage() {
 }
 
 export default SeminarsPage;
+

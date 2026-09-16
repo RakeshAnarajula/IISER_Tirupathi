@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { InstitutionalPage as InstitutionalComponent } from '../components/InstitutionalPage';
+import { InstitutionalPage as InstitutionalComponent } from './InstitutionalContent';
 
 export function InstitutionalPage({ pageKey }) {
   const { slug } = useParams();
@@ -21,3 +21,4 @@ export function InstitutionalPage({ pageKey }) {
 }
 
 export default InstitutionalPage;
+
